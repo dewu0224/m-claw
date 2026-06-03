@@ -1,3 +1,5 @@
+English | [中文](./README.md)
+
 # M-Claw
 
 A personal AI assistant platform built in Rust, derived from [OpenClaw](https://github.com/paimoncloud/openclaw) (subtraction) and [Hermes Agent](https://github.com/nicepkg/hermes-agent) (self-evolution).

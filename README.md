@@ -1,3 +1,5 @@
+[English](./README_EN.md) | 中文
+
 # M-Claw
 
 基于 [OpenClaw](https://github.com/paimoncloud/openclaw) 和 [Hermes Agent](https://github.com/nicepkg/hermes-agent) 做减法开发的个人 AI 助手平台。用 Rust 重写，砍掉了企业级复杂度，只保留个人用户真正需要的功能。
