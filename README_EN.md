@@ -12,6 +12,15 @@ Hermes Agent has an elegant self-evolution mechanism — the agent learns from c
 
 M-Claw's approach: **Slim OpenClaw down to personal-use scale, then graft on Hermes's self-evolution capabilities.**
 
+## Design Philosophy
+
+M-Claw is built for **personal deployment, always-on access**:
+
+- **Low resource footprint** — Written in Rust as a single binary with minimal memory usage. Runs comfortably on an idle laptop, Raspberry Pi, or the cheapest cloud VPS — leave it running 24/7 without a second thought
+- **IM as the interface** — No dedicated app or web UI needed. Chat with your AI assistant directly in the messaging app you already use every day. Feishu is supported out of the box; WeChat, QQ, and Telegram only need a Channel trait implementation to connect
+- **Mobile-friendly** — Deploy on a server, use from your phone. Ask questions, run commands, manage files — anytime, anywhere
+- **Private and self-hosted** — All data stays on your own device. SQLite local storage, memory files fully transparent and editable
+
 ## Key Features
 
 ### 🧠 Self-Evolution System (from Hermes)
