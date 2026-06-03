@@ -1,0 +1,11 @@
+/target
+/data
+*.db
+*.sqlite
+*.log
+.mavis/
+
+# 配置文件（含 API key，不能提交）
+config.toml
+*.env
+.env

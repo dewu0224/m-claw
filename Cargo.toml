@@ -1,0 +1,107 @@
+[package]
+name = "m-claw"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+description = "A personal AI assistant platform, reduced from OpenClaw with Hermes self-evolution"
+
+[workspace]
+resolver = "2"
+members = [
+    ".",
+    "crates/core",
+    "crates/config",
+    "crates/llm",
+    "crates/agent",
+    "crates/tools",
+    "crates/skills",
+    "crates/memory",
+    "crates/evolution",
+    "crates/channels",
+    "crates/gateway",
+    "crates/storage",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+
+[workspace.dependencies]
+# Internal crates
+mc-core = { path = "crates/core" }
+mc-config = { path = "crates/config" }
+mc-llm = { path = "crates/llm" }
+mc-agent = { path = "crates/agent" }
+mc-tools = { path = "crates/tools" }
+mc-skills = { path = "crates/skills" }
+mc-memory = { path = "crates/memory" }
+mc-evolution = { path = "crates/evolution" }
+mc-channels = { path = "crates/channels" }
+mc-gateway = { path = "crates/gateway" }
+mc-storage = { path = "crates/storage" }
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+# Error handling
+thiserror = "2"
+anyhow = "1"
+
+# Async
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1"
+
+# CLI
+clap = { version = "4", features = ["derive", "env"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# HTTP
+reqwest = { version = "0.12", features = ["json", "stream"] }
+futures = "0.3"
+
+# Skill parsing
+serde_yaml = "0.9"
+glob = "0.3"
+
+# Utilities
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4"] }
+
+# Database
+rusqlite = { version = "0.33", features = ["bundled"] }
+
+[[bin]]
+name = "m-claw"
+path = "src/main.rs"
+
+[dependencies]
+mc-core.workspace = true
+mc-config.workspace = true
+mc-llm.workspace = true
+mc-agent.workspace = true
+mc-tools.workspace = true
+mc-skills.workspace = true
+mc-memory.workspace = true
+mc-evolution.workspace = true
+mc-channels.workspace = true
+mc-gateway.workspace = true
+mc-storage.workspace = true
+tokio.workspace = true
+clap.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+anyhow.workspace = true
+futures.workspace = true
+async-trait.workspace = true
+chrono.workspace = true
+uuid.workspace = true

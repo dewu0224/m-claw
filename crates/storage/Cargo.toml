@@ -1,0 +1,19 @@
+[package]
+name = "mc-storage"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "SQLite session persistence with FTS5 full-text search for mavis-claw"
+
+[dependencies]
+mc-core = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+rusqlite = { version = "0.33", features = ["bundled"] }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

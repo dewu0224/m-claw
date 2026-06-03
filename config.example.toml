@@ -1,0 +1,75 @@
+# Mavis-Claw 配置文件示例
+#
+# 优先级: CLI args > 环境变量 > 本文件 > 默认值
+# 带 "env:" 前缀的值会自动从环境变量读取
+
+# === 网关服务器 ===
+[gateway]
+bind = "127.0.0.1:3777"
+# auth_token = "env:MAVIS_GATEWAY_AUTH_TOKEN"
+
+# === LLM Providers ===
+[[providers]]
+id = "openai-main"
+kind = "OpenAI"
+base_url = "https://api.openai.com/v1"
+api_key = "env:OPENAI_API_KEY"
+models = ["gpt-4o", "gpt-4o-mini", "o3"]
+
+[[providers]]
+id = "anthropic-main"
+kind = "Anthropic"
+base_url = "https://api.anthropic.com"
+api_key = "env:ANTHROPIC_API_KEY"
+models = ["claude-sonnet-4-20250514", "claude-opus-4-20250514"]
+
+[[providers]]
+id = "deepseek"
+kind = "OpenAI"
+base_url = "https://api.deepseek.com/v1"
+api_key = "env:DEEPSEEK_API_KEY"
+models = ["deepseek-chat", "deepseek-reasoner"]
+
+# === Agents ===
+[[agents]]
+id = "main"
+name = "Mavis"
+model = "gpt-4o"
+provider = "openai-main"
+system_prompt = "You are Mavis, a helpful AI assistant."
+# max_tokens = 4096
+# temperature = 0.7
+
+# === Channels ===
+[[channels]]
+id = "feishu-bot"
+kind = "Feishu"
+agent_id = "main"
+
+[channels.settings]
+app_id = "env:FEISHU_APP_ID"
+app_secret = "env:FEISHU_APP_SECRET"
+verification_token = "env:FEISHU_VERIFICATION_TOKEN"
+
+# === Memory ===
+[memory]
+enabled = true
+path = "./data/memory"
+
+# === Skills ===
+[skills]
+enabled = true
+path = "./data/skills"
+
+# === Evolution ===
+[evolution]
+enabled = true
+memory_nudge_interval = 10
+skill_nudge_interval = 10
+curator_interval_hours = 168
+
+# === Tools ===
+[tools]
+bash = true
+filesystem = true
+web_search = true

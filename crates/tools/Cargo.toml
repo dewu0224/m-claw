@@ -1,0 +1,19 @@
+[package]
+name = "mc-tools"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Tool registration, discovery, and execution for mavis-claw"
+
+[dependencies]
+mc-core = { workspace = true }
+mc-config = { workspace = true }
+mc-memory = { workspace = true }
+tokio = { workspace = true }
+serde_json = { workspace = true }
+async-trait = { workspace = true }
+serde = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"
